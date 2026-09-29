@@ -1,0 +1,31 @@
+<div class="max-w-md mx-auto mt-12 p-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Login to ShopAdmin</h2>
+
+  <div class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+      <input
+        type="email"
+        value="admin@shop.com"
+        disabled
+        class="w-full p-2.5 border rounded bg-gray-50 text-gray-500"
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+      <input
+        type="password"
+        value="••••••••"
+        disabled
+        class="w-full p-2.5 border rounded bg-gray-50 text-gray-500"
+      />
+    </div>
+
+    <button
+      (click)="onLogin()"
+      class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded shadow transition cursor-pointer"
+    >
+      Sign In
+    </button>
+  </div>
+</div>

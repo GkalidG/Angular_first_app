@@ -1,0 +1,43 @@
+<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+  @if (productResource.isLoading()) {
+    <div class="flex items-center justify-center py-12">
+      <span class="text-gray-500 animate-pulse">Loading product details...</span>
+    </div>
+  } @else if (product(); as prod) {
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900">{{ prod.name }}</h2>
+      <p class="text-sm text-gray-500 mb-4">SKU: {{ prod.sku }}</p>
+      <p class="text-gray-700 mb-6">{{ prod.description }}</p>
+
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg mb-6">
+        <span class="text-xl font-bold text-gray-900">{{ prod.price | currency }}</span>
+
+        <!-- Quantity Selector bound to our linkedSignal -->
+        <div class="flex items-center gap-3">
+          <button
+            (click)="decrement()"
+            class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-100 cursor-pointer font-bold"
+          >
+            -
+          </button>
+          <span class="w-8 text-center font-semibold">{{ quantity() }}</span>
+          <button
+            (click)="increment()"
+            class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-100 cursor-pointer font-bold"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <button
+        (click)="onAddToCart()"
+        class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded transition cursor-pointer"
+      >
+        Add to Cart ({{ quantity() }} {{ quantity() === 1 ? 'item' : 'items' }})
+      </button>
+    </div>
+  } @else {
+    <p class="text-center py-12 text-gray-500">Select a product to view details.</p>
+  }
+</div>

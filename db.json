@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "sku": "LAPTOP-PRO",
+      "name": "MacBook Pro M3",
+      "price": 1999,
+      "description": "Supercharged by M3 Pro with 16GB unified memory and 512GB SSD.",
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "sku": "PHONE-ULTRA",
+      "name": "iPhone 15 Pro",
+      "price": 999,
+      "description": "Stunning titanium design, action button, and advanced camera.",
+      "inStock": true
+    },
+    {
+      "id": "3",
+      "sku": "HEADPHONES-MX5",
+      "name": "Sony WH-1000XM5",
+      "price": 349,
+      "description": "Premium wireless noise-canceling headphones with crystal-clear hands-free calls.",
+      "inStock": false
+    }
+  ]
+}

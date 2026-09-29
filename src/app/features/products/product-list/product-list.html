@@ -1,0 +1,43 @@
+<div class="space-y-8">
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (prod of products(); track prod.id) {
+      <div class="flex flex-col h-full justify-between">
+        <!-- Render card -->
+        <app-product-card [product]="prod" (addToCart)="handleAddToCart(prod)" />
+        <!-- RouterLink to details page -->
+        <a
+          [routerLink]="['/products', prod.id]"
+          class="mt-2 text-center text-sm font-semibold text-blue-600 hover:text-blue-800"
+        >
+          View Details
+        </a>
+      </div>
+    } @empty {
+      <p class="col-span-full py-8 text-center text-gray-500 bg-white border rounded-lg">
+        No products available in database.
+      </p>
+    }
+  </div>
+
+  <!-- Deferred Chart Section -->
+  @defer (on viewport) {
+    <app-heavy-analytics-chart />
+  } @placeholder {
+    <div
+      class="flex items-center justify-center h-48 border-2 border-dashed border-gray-300 rounded-xl bg-white text-gray-400"
+    >
+      Scroll down to load dashboard performance analytics...
+    </div>
+  } @loading (minimum 300ms) {
+    <div class="flex items-center justify-center h-48 bg-white rounded-xl shadow-sm text-gray-500">
+      <span class="animate-pulse">Loading analytics module assets...</span>
+    </div>
+  } @error {
+    <div
+      class="flex items-center justify-center h-48 text-red-600 bg-red-50 border border-red-200 rounded-xl"
+    >
+      Failed to fetch performance analytics.
+    </div>
+  }
+</div>
